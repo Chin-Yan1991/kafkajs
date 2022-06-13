@@ -1,0 +1,33 @@
+{
+  "name": "kafka",
+  "version": "1.0.0",
+  "description": "kafkajs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch src/ --watch pages/ -e js,json,ejs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^3.3.0",
+    "arangojs": "^7.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "joi": "^17.6.0",
+    "kafkajs": "^2.0.2",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-ejs": "^4.3.0",
+    "koa-logger": "^3.2.1",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0",
+    "koa2-static": "^1.0.1",
+    "koa2-swagger-ui": "^5.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
