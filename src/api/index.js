@@ -32,17 +32,18 @@ const validateMiddleware = (ctx, next) => {
 const routerBinder = (app) => {
 
     for(const routematrix of routeMatrix ){
-        const router = new Router();
+        const router = new Router({prefix: `/${config.VERSION}${routematrix.Group}`});
         
         routematrix.Routes.map(route=>{
+            
             router.use(async(ctx,next)=>{
                 ctx.route = route;
                 next();
             });
+
             router.use(validateMiddleware);
             const httpMethod = route.method;
             ColorLog.Cyan({httpMethod, path:`/${config.API_VERSION}${routematrix.Group}${route.path}`});
-
 
 
             switch(httpMethod){
@@ -61,10 +62,7 @@ const routerBinder = (app) => {
             }
         });
     
-    
-        app.use(
-            mount(`/${config.VERSION}${routematrix.Group}`,router.routes())
-        )
+        app.use(router.routes());
     }
 }
 
